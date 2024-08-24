@@ -1,4 +1,13 @@
-function Contact({ name, number, id, onDeleteContact }) {
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/contactsSlice';
+
+function Contact({ name, number, id }) {
+  const dispatch = useDispatch();
+
+  const onDeleteContact = id => {
+    dispatch(deleteContact(id));
+  };
+
   return (
     <div>
       <h2>{name}</h2>
